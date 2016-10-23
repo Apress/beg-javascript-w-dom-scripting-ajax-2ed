@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="ltr" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+  <title>Example: Select box navigation (evil)</title>
+  <style type="text/css">
+  </style>
+  <script type="text/javascript" src="../DOMhelp.js"></script>
+  <script type="text/javascript">
+   send={
+     init:function(){
+	   DOMhelp.addEvent(document.forms[0],'submit',send.redirect,false);  
+	 },
+	 redirect:function(e){
+	   var t=DOMhelp.getTarget(e);
+	   var url=t.elements['url'];
+	   window.location=url.options[url.selectedIndex].value;
+	   DOMhelp.cancelClick(e);
+	 }		
+	}
+	DOMhelp.addEvent(window,'load',send.init,false);  
+  </script>
+</head>
+<body>
+<form method="post" action="redir.php">
+<p>
+  <label for="url">Please select your destination:</label>	
+  <select id="url" name="url">
+    <option value="http://www.apress.com">The publisher</option>
+    <option value="http://wait-till-i.com">The author's blog</option>
+    <option value="http://icant.co.uk">The author's other articles</option>
+    <option value="http://onlinetools.org">Scripts and tools by the author</option>
+  </select>  
+  <input type="submit" value="Make it so!" />
+</p>
+</form>
+</body>
+</html>

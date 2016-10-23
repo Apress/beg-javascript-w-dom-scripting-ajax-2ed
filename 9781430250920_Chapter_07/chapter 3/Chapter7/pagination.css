@@ -1,0 +1,47 @@
+
+table.dynamic tbody tr{
+	display:none;
+}
+table.dynamic tbody tr.show{
+	display:block;
+}
+html>body table.dynamic tbody tr.show{
+	display:table-row;
+}
+
+th,td{
+	padding:5px;
+}
+th{
+	background:#eef;
+}
+table.paginated{
+	width:300px;
+	font-size:.8em;
+	font-family:arial,sans-serif;
+	border:1px solid #ccc;
+	border-bottom:none;
+	border-right:none;
+}
+table.paginated td,table.paginated th{
+	border:1px solid #ccc;
+	border-top:none;
+	border-left:none;
+}
+p.paginatedNav{
+	font-size:.8em;
+	font-family:arial,sans-serif;
+	width:280px;
+	padding:.5em 10px;
+	margin:0;
+	text-align:right;
+	font-weight:bold;
+}
+p.paginatedNav a{
+	color:#ccc;
+}
+p.paginatedNav a:link,
+p.paginatedNav a:visited
+{
+	color:#369;
+}

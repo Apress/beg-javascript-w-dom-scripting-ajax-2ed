@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+	<title>Example: Testing if a string is a valid number using string methods</title>
+	<style type="text/css">
+	</style>
+	<script type="text/javascript">
+		function isNumber(){
+		 var currentCode;
+		 var total=document.getElementById('total');
+		 if(!total){return false;}
+		 total=total.value;
+		 if(total.length==0){
+		   alert('Field is empty');
+		   return false;
+		 }	
+		 if(total.indexOf('-')!=-1 && total.substring(0,1)!='-' || 
+		    total.lastIndexOf('-')!=total.indexOf('-')){
+		   alert('A number can only have a minus at the beginning');
+		   return false;
+		 }
+		 if(total.indexOf('.')!=-1 && 
+		    total.lastIndexOf('.')!=total.indexOf('.')){
+		   alert('A number can only have one decimal point');  
+		   return false;
+		 }
+		 for(var i=0;i<total.length;i++){
+		   currentCode=total.charCodeAt(i);
+		   if(currentCode!=45 && currentCode!=46 && 
+		   currentCode<48 || currentCode>57){
+		     alert('Only Numbers are allowed')
+		     return false;
+		   } 
+		 }
+		 return true;
+		}
+	</script>
+</head>
+<body>
+<form onsubmit="return isNumber()">
+	<p><label for="total">Total</label><input type="text" name="total" id="total" /></p>
+	<p><input type="submit" value="send" /></p>
+</form>
+</body>
+</html>

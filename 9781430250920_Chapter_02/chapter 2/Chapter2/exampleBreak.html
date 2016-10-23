@@ -1,0 +1,28 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="ltr" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+	<title>Example: Using break to end a while loop</title>
+</head>
+<body>
+<script type="text/javascript">
+var userNumbers = new Array();
+var userInput;
+var arrayIndex = 0;
+  
+do {
+  userInput = Number(prompt("Enter a number, or 99 to exit","99"));
+  //check that user input is a valid number, and if not, break with error msg
+  if ( isNaN( userInput ) ) {
+    document.write("Invalid data entered: please enter a number between 0 and 99 in numerals");
+    break;
+  }
+  //if break has been activated, code will continue from here 
+  userNumbers[arrayIndex] = userInput;
+  arrayIndex++;
+} while (userInput != 99)
+// next statement after loop
+</script>
+</body>
+</html>

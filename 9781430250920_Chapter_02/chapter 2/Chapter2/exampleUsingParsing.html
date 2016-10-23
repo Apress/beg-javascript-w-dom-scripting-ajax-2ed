@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="ltr" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+	<title>Example: Using parseFloat and parseInt</title>
+</head>
+<body>
+<script type="text/javascript">
+var userEnteredNumber = prompt("Please enter a number","");
+document.write(typeof(userEnteredNumber));
+document.write("<br />");
+document.write(parseFloat(userEnteredNumber));
+document.write("<br />");
+document.write(parseInt(userEnteredNumber));
+userEnteredNumber = Number(userEnteredNumber)
+document.write("<br />");
+document.write(userEnteredNumber);
+document.write("<br />");
+document.write(typeof(userEnteredNumber));
+</script>
+</body>
+</html>
+

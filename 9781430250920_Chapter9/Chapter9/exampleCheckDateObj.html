@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/totalict.dtd">
+<html dir="ltr" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+	<title>Testing if a string is a valid date using the Date object</title>
+	<style type="text/css">
+	</style>
+	<script type="text/javascript">
+	function isValidDate(){
+	  var datestring=document.getElementById('date');
+	  if(!datestring){return false;}
+	  datestring=datestring.value;
+	  if(datestring.length==0){
+	    alert('Field is empty');
+	    return false;
+	  }	
+	  if(datestring.length!=10 && datestring.indexOf('/')==-1 ||
+	  datestring.indexOf('/')!=2 || datestring.lastIndexOf('/')!=5){
+	  	alert('The date is not in the format dd/mm/yyyy');
+		return false;
+	  }
+	  var chunks=datestring.split('/');
+	  var testDate=new Date(chunks[2],chunks[1]-1,chunks[0]);
+      if(testDate.getDate()==chunks[0]){
+          if (testDate.getMonth()+1==chunks[1]){
+              if(testDate.getFullYear()==chunks[2]){
+                  return true;
+              } else {
+                  alert("This is not a valid year.");
+              }
+          } else {
+              alert("This is not a valid month.");
+          }
+      } else {
+          alert("This is not a valid date.");
+      }
+	  return true;
+	}
+	</script>
+</head>
+<body>
+<form onsubmit="return isValidDate()">
+	<p><label for="date">Date (dd/mm/yyyy)</label><input type="text" name="date" id="date" /></p>
+	<p><input type="submit" value="send" /></p>
+</form>
+</body>
+</html>

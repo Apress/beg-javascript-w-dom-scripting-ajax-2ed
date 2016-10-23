@@ -1,0 +1,61 @@
+*{
+	margin:0;
+	padding:0;
+}
+body{
+	font-size:100.01%;
+	font-family:Arial,Sans-Serif;
+	padding:.5em;
+}
+form{
+	font-size:.8em;
+	padding:1em;
+	width:30em;
+}
+h1{
+	margin:0 .5em;
+	font-size:1.4em;
+	color:#369;
+}
+p{
+	margin:0 0 .5em 0;
+}
+p.submit{
+	text-align:right;
+	padding:.5em;
+}
+h2{
+	font-size:1.2em;
+	padding:.5em;
+	color:#fff;
+	background:#369;
+}
+h3{
+	font-size:1em;
+	padding:0 0 .5em 0;
+}
+label{
+	padding:0 1em;
+}
+p.ajax{
+	border:1px solid #999;
+	background:#ffc;
+	padding:.5em;
+}
+#formOutput{
+	background:#eee;
+}
+#formOutput label{
+	padding:0 .5em;
+}
+#formOutput p,#formOutput h3{
+	padding:.5em;
+}
+p.otherchoice{
+	background:#369;
+	color:#fff;
+	font-weight:bold;
+}
+p.otherchoice a{
+	color:#ffc;
+}

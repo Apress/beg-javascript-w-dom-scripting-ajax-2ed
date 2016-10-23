@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/totalict.dtd">
+<html dir="ltr" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+	<title>Example: Testing for a valid number using mathematical methods</title>
+	<style type="text/css">
+	</style>
+	<script type="text/javascript">
+	function isNumber(){
+	  var total=document.getElementById('total');
+	  if(!total){return false;}
+	  total=total.value;
+	  if(total.length==0){
+	    alert('Field is empty');
+	    return false;
+	  }	
+	  if(isNaN(total)){
+	  	alert('Please enter a number');
+		return false;
+	  }
+	  return true;
+	}
+	
+	</script>
+</head>
+<body>
+<form onsubmit="return isNumber()">
+	<p><label for="total">Total</label><input type="text" name="total" id="total" /></p>
+	<p><input type="submit" value="send" /></p>
+</form>
+</body>
+</html>

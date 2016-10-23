@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+<style>
+	.warning{
+		border:1px solid red;	
+		width:350px;
+		padding:5px;
+		
+	}
+	.interacted:invalid {
+        border: 1px solid red;
+    }
+    .interacted:valid {
+        border: 1px solid green;
+    }
+	fieldset{
+			width:350px;
+			padding:5px;		
+			clear:both;
+			display:block;
+		}
+		 	
+</style>
+
+<script>
+ function formCheck(){
+	 var form = document.getElementById("userForm");
+
+	form.addEventListener("submit", function(event){
+			checkInputs();
+			event.preventDefault();	
+		}, false);
+ }
+
+ function checkInputs(){
+	 var resultDiv = document.getElementById("result");
+	 	 resultDiv.hidden = true;
+		 
+	 var inputs = document.getElementsByTagName("input");
+	 
+	 
+		while(resultDiv.hasChildNodes()){
+			resultDiv.removeChild(resultDiv.firstChild);	
+		}
+ 		
+	 
+	for(var i = 0; i < inputs.length; i++){
+		inputs[i].classList.add("interacted");
+		if(!inputs[i].validity.valid){
+			var para = document.createElement("p");
+			var formatedName = reformatName(inputs[i].id);
+			var msg = document.createTextNode(formatedName + " is invalid.");
+				para.appendChild(msg);
+			resultDiv.appendChild(para);
+			resultDiv.hidden = false;
+		}
+	}	 
+ }
+	 
+function reformatName(oldName){
+		switch(oldName){
+			case "firstName": return "First Name";
+			break;
+			
+			case "lastName": return "Last Name";
+			break;
+			
+			case "email":return "Email";
+			break;
+			
+			case "phone":return "Phone";
+			break;	
+		}
+}
+document.addEventListener("DOMContentLoaded", formCheck, false);
+</script>
+</head>
+
+<body>
+<form id="userForm" novalidate>
+    <fieldset>
+        
+        <ul>
+            <li>
+                <label for="firstName">First Name:</label>
+                <input type="text" required id="firstName" />
+            </li>
+            <li>
+                <label for="lastName">Last Name:</label>
+                <input type="text" required id="lastName" />
+            </li>
+            
+            <li>
+                <label for="email">Email:</label>
+                <input type="email" required id="email" />
+            </li> 
+            
+            <li>
+                <label for="phone">Phone Number:</label>
+                <input type="tel" required id="phone" />
+            </li>                        
+        </ul>
+        
+        <button>Submit</button>
+    </fieldset>
+</form>
+<div id="result" class="warning" hidden="true">
+
+</body>
+</html>

@@ -1,0 +1,142 @@
+		*{
+			margin:0;
+			padding:0;
+			border:none;
+			list-style:none;
+		}
+		body{
+			font-family:arial,sans-serif;
+			font-size:.8em;
+			background:url(topdrop.gif) repeat-x #466b0b;
+		}
+		ul#thumbs{
+			float:left;
+		}
+		ul#thumbs li{
+			float:left;
+		}
+		ul#thumbs li a{
+			width:110px;
+			height:110px;
+			display:block;
+		}
+		#boundary{
+			width:721px;
+			margin:10px auto;
+			padding-top:10px;
+			background:url(background.gif) top left no-repeat #466b0b;
+		}
+		#contentbody{
+			float:left;
+			width:721px;
+			background:url(background.gif) bottom left no-repeat #466b0b;
+			padding-bottom:30px;
+		}	
+		#navtree{
+			width:175px;
+			float:left;
+			margin:0 0;
+			padding:5px 0 25px 25px;
+		}
+		#navtree h2{
+			text-transform:uppercase;
+			font-size:1.3em;
+			color:#ffc;
+		}
+		#navtree li{
+			padding:5px 0;
+		}
+		#navtree a{
+			display:block;
+			padding:5px;
+			color:#fff;
+			font-weight:bold;
+		}
+		#navtree strong a{
+			padding:0;
+		}
+		#navtree strong{
+			padding:5px;
+			display:block;
+			background:#000;
+		}
+		#content{
+			width:470px;
+			float:left;
+			padding:25px;
+		}
+		#largepic{
+			
+		}
+		#largepic img{
+			display:block;
+			margin:0 auto;
+			background:url(dropshadow.gif) bottom right;
+			padding:0 8px 7px 0;
+		}
+		#picthumbs{
+			clear:both;
+			width:440px;
+			margin:10px auto;
+		}
+		#picthumbs li{
+			float:left;
+			padding:5px;
+		}
+		#picthumbs li a{
+			display:block;
+			width:200px;	
+			height:100px;
+		}
+		
+		#thumbs li img,#picthumbs li img{
+			margin:0 auto;
+			display:block;
+			background:url(dropshadow.gif) bottom right;
+			padding:0 4px 6px 0;
+		}
+		#thumbsnav{
+			clear:both;
+		}
+		#thumbsnav li{
+			float:left;
+			padding:0 .5em;
+			font-size:1.5em;
+			line-height:55px;
+			color:#000;
+		}
+		#thumbsnav li a{
+			line-height:55px;
+			text-indent:-200px;
+			overflow:hidden;
+		}
+		a.prev{
+			display:block;
+			width:80px;
+			height:55px;
+			background:url(arrows.gif) top left transparent no-repeat;
+		}
+		a.next{
+			display:block;
+			width:80px;
+			height:55px;
+			background:url(arrows.gif) top right transparent no-repeat;
+		}
+		#picthumbs li a.prev img{
+			margin-left:80px;
+			display:block;
+		}
+		#picthumbs li a.next img{
+			margin-right:80px;
+			display:block;
+		}
+		
+		h1{
+			text-transform:uppercase;
+			font-size:1.8em;
+			letter-spacing:-1px;
+			font-weight:normal;
+			text-align:right;
+			color:#030;
+			margin:.4em 1.8em 0 0;
+		}

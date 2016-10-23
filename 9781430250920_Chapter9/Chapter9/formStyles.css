@@ -1,0 +1,67 @@
+		*{
+			margin:0;
+			padding:0;
+		}
+		body{
+			padding:1em;
+			font-size:100.01%;
+			font-family:Verdana,Arial,Sans-Serif;
+		}
+		form{
+			font-size:.85em;
+		}
+		fieldset{
+			width:28em;
+			padding:.5em;		
+			clear:both;
+			display:block;
+		}
+		textarea{
+			width:27em;
+		}
+		legend{
+			padding:.2em .5em;
+			font-weight:bold;
+			color:#363;
+		}
+		p{
+			margin-bottom:.3em;
+		}
+		.error{
+			font-size:.8em;
+			padding:.5em 1em;
+			margin:.5em;
+			width:23em;
+			border:2px solid #c00;
+		}
+		form .error{
+			font-size:1em;
+		}
+		.error ul{
+			padding:.5em 2em;
+		}
+		.error li{
+			padding:.2em .5em;
+			list-style-type:square;
+		}
+		.error h2{
+			font-size:1.2em;
+			color:#c00;
+		}
+		.error li.errorlink{
+			list-style-type:none;
+			text-align:center;
+			padding:1em .5em;
+		}
+		.error li.errorlink a{
+			border:1px solid #900;
+			background:#c00;
+			color:#fff;
+			padding:.5em;
+			font-weight:bold;
+			text-transform:uppercase;
+			text-decoration:none;
+		}
+		span.error{
+			display:block;
+		}

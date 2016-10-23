@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="ltr" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+	<title>Example: Using for loops with in</title>
+</head>
+<body>
+<script type="text/javascript">
+// initialize theBeatles array and store in a variable 
+var theBeatles = new Array();
+// set the values using keys rather than numbers  
+theBeatles["Drummer"] = "Ringo";
+theBeatles["SingerRhythmGuitar"] = "John";
+theBeatles["SingerBassGuitar"] = "Paul";
+theBeatles["SingerLeadGuitar"] = "George";
+var indexKey;
+ 
+// write out each indexKey and the value for that indexKey from the array
+for ( indexKey in theBeatles) {
+  document.write("indexKey is " + indexKey + "<br>");
+  document.write("item value is " + theBeatles[indexKey] + "<br><br>");
+}
+</script>
+</body>
+</html>

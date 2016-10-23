@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="ltr" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+	<title>Example: Using if to Convert Euros to Dollars</title>
+</head>
+<body>
+<script type="text/javascript">
+var euroToDollarRate = 0.872;
+//try to convert the input into a number  
+var eurosToConvert = Number(prompt("How many Euros do you wish to convert","")); 
+//if the user hasn't entered a number then NaN will be returned
+if (isNaN(eurosToConvert)){
+  //ask the user to enter a value in numerals
+  document.write("Please enter the number in numerals");
+//if NaN is not returned then we can use the input 
+} else {
+  //and do the conversion as before
+  var dollars = eurosToConvert * euroToDollarRate;
+  document.write(eurosToConvert + " euros is " + dollars + " dollars");
+}
+</script>
+</body>
+</html>

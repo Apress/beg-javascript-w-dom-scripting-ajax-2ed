@@ -1,0 +1,23 @@
+{
+  'album':
+  [
+    {
+      'id':'1',
+      'artist':'Depeche Mode',
+      'title':'Playing the Angel',
+      'comment':'They are back and finally up to speed again'
+    },
+    {
+      'id':'2',
+      'artist':'Monty Python',
+      'title':'The final Rip-Off',
+      'comment':'Double CD wiid all the songs'
+    },
+    {
+      'id':'3',
+      'artist':'Ms Kittin',
+      'title':'I.com',
+      'comment':'Good electronica'
+    }
+  ]
+}

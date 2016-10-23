@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+	<title>Example: Simple XHR</title>
+    <link rel="stylesheet" href="form.css">
+	<script type="text/javascript" src="../DOMhelp.js"></script>
+	<script type="text/javascript">
+	XHR={
+		init:function(){
+		  var XHRcaller;
+		  try{
+		    XHRcaller = new XMLHttpRequest();
+		  } catch (error) {
+		    try {
+		      XHRcaller = new ActiveXObject("Microsoft.XMLHTTP");
+		    } catch (error) {
+		      XHRcaller = null;
+		    }
+		  }
+		  if (XHRcaller != null){
+		    XHRcaller.onreadystatechange = function(){
+		      if (XHRcaller.readyState == 1){
+		  document.getElementById('navcontainer').innerHTML='<img src="indicator_big.gif" alt="loading" />'
+			  }
+
+		      if (XHRcaller.readyState == 4){
+		        if (/200|304/.test(XHRcaller.status)){
+		          XHR.retrieved(XHRcaller);
+		        } else{
+		          XHR.failed(XHRcaller);
+		        }
+		      }
+		      return true;
+		    }
+		    XHRcaller.open("GET", "loadcute.php");
+		    XHRcaller.send(null);
+		  } else {
+		    return false;
+		  }
+		return true;
+		},
+		retrieved:function(caller){
+			var content='';
+			var data=caller.responseText;
+			data=data.match(/<img.*?>/g);
+			for(var i=0;i<data.length;i++){
+				content+=data[i];
+			}
+			document.getElementById('navcontainer').innerHTML=content;
+		},
+		failed:function(requester){
+		  alert("The XMLHttpRequest failed with status code: " + requester.status);
+		  return true;
+		}
+	}
+	</script>
+</head>
+<body>
+<a href="#" onclick="XHR.init('navcontainer','navigation.html');return false;">load cute</a>
+<div id="navcontainer">
+<ul id="nav">
+	<li><a href="index.php">Home</a></li>
+	<li><a href="products.php">Products</a></li>
+	<li><a href="services.php">Services</a></li>
+	<li><a href="pricing.php">Pricing</a></li>
+	<li><a href="about_us.php">About Us</a></li>
+	<li><a href="contact.php">Contact Us</a></li>
+</ul>
+</div>
+</body>
+</html>

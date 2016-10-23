@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="ltr" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+	<title>Example: Using Switch</title>
+</head>
+<body>
+<script type="text/javascript">
+// store user entered number between 1 and 4 in userNumber
+var userNumber = Number(prompt("Enter a number between 1 and 4","")); 
+switch(userNumber){
+// if userNumber is 1 write out and carry on executing after case statement 
+  case 1:
+    document.write("Number 1");
+    break;
+  case 2:
+    document.write("Number 2");
+    break;
+  case 3:
+    document.write("Number 3");
+    break;
+  case 4:
+    document.write("Number 4");
+    break;
+  default:
+    document.write("Please enter a numeric value between 1 and 4.");
+    break;
+}
+  
+// code continues executing here
+</script>
+</body>
+</html>

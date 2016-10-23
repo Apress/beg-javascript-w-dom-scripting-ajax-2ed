@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+
+<script>
+	 function emailCheck(){
+		var email1 = document.getElementById("email1");		  
+		var email2 = document.getElementById("email2");
+		var resultDiv = document.getElementById("result");
+			 
+		var form = document.getElementById("emailForm");
+			form.addEventListener("submit", function(event){
+				if(email1.validity.valid && email2.validity.valid && email1.value && email2.value){
+					
+					resultDiv.innerHTML = "<p>Email is valid and they match</p>";
+				}else{
+					resultDiv.innerHTML = "<p>Email is not valid or they do not match</p>";
+				}
+				event.preventDefault();	
+			}, false);
+	 }
+	 
+document.addEventListener("DOMContentLoaded", emailCheck, false);
+</script>
+</head>
+
+<body>
+<form id="emailForm" novalidate>
+    <fieldset>
+        
+        <ul>
+            <li>
+                <label for="email1">Enter Email:</label>
+                <input type="email" required id="email1" />
+            </li>
+            <li>
+                <label for="email2">Retype Email:</label>
+                <input type="email" required id="email2" />
+            </li>
+        </ul>
+        <input type="submit" />
+    </fieldset>
+</form>
+<div id="result" class="results">
+ 
+</div>
+</body>
+</html>

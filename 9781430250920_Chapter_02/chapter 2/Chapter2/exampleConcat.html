@@ -1,0 +1,18 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="ltr" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+	<title>Example: Concatenating Arrays</title>
+</head>
+<body>
+<script type="text/javascript">
+var arrayOne = new Array("One","Two","Three","Four","Five");
+var arrayTwo = new Array("ABC","DEF","GHI");
+var arrayThree = new Array("John","Paul","George","Ringo");
+var joinedArray = arrayOne.concat(arrayTwo, arrayThree);
+document.write("joinedArray has " + joinedArray.length + " elements<br>");
+document.write(joinedArray[0] + "<br>")
+document.write(joinedArray[11] + "<br>")
+</script>
+</body>
+</html>

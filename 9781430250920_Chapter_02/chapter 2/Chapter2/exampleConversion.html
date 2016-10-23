@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="ltr" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+	<title>Example: Currency Conversion</title>
+	<style type="text/css">
+	</style>
+	<script type="text/javascript">
+	</script>
+</head>
+<body>
+	<script type="text/JavaScript">
+	//declare a variable holding the conversion rate
+	var euroToDollarRate = 0.872;
+	// declare a new variable and use it to store the number of Euros 
+	var eurosToConvert = prompt("How many Euros do you wish to convert","");
+	//declare a variable to hold the result of the Euros multiplied by the conversion 
+	var dollars = eurosToConvert * euroToDollarRate;
+	//write the result to the page
+	document.write(eurosToConvert + " euros is " + dollars + " dollars");
+	</script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+	<title>Example: Bulk changing of checkboxes</title>
+	<style type="text/css">
+	</style>
+	<script type="text/javascript">
+		/*function changeBoxes(action){
+		  var f=document.forms[0];
+		  var elms=f.elements;
+		  for(var i=0;i<elms.length;i++){
+		    if(elms[i].type!='checkbox'){continue;}
+		    if(action<0){
+		      elms[i].checked=elms[i].checked?0:1;
+		    } else {
+		      elms[i].checked=action;
+		    }
+		  }
+		}
+		*/
+		function changeBoxes(action){
+  var f=document.forms[0];
+  var elms=f.elements;
+  for(var i=0;i<elms.length;i++){
+    if(elms[i].type!='checkbox'){continue;}
+    elms[i].checked=action<0?(elms[i].checked?0:1):action;
+  }
+}
+
+	</script>
+</head>
+<body>
+<form action="send">
+<table>
+<thead>
+<tr>
+	<td colspan="3">
+		<input type="button" onclick="changeBoxes(1)" value="select all" />
+		<input type="button" onclick="changeBoxes(-1)" value="invert selection" />
+		<input type="button" onclick="changeBoxes(0)" value="select none" />
+	</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+	<td><input type="checkbox" name="m1"></td>
+	<td><a href="#">Dummy email content</a></td>
+</tr>
+<tr>
+	<td><input type="checkbox" name="m2"></td>
+	<td><a href="#">Dummy email content</a></td>
+</tr>
+<tr>
+	<td><input type="checkbox" name="m3"></td>
+	<td><a href="#">Dummy email content</a></td>
+</tr>
+<tr>
+	<td><input type="checkbox" name="m4"></td>
+	<td><a href="#">Dummy email content</a></td>
+</tr>
+<tr>
+	<td><input type="checkbox" name="m5"></td>
+	<td><a href="#">Dummy email content</a></td>
+</tr>
+<tr>
+	<td><input type="checkbox" name="m6"></td>
+	<td><a href="#">Dummy email content</a></td>
+</tr>
+<tr>
+	<td><input type="checkbox" name="m7"></td>
+	<td><a href="#">Dummy email content</a></td>
+</tr>
+<tr>
+	<td><input type="checkbox" name="m8"></td>
+	<td><a href="#">Dummy email content</a></td>
+</tr>
+<tr>
+	<td><input type="checkbox" name="m9"></td>
+	<td><a href="#">Dummy email content</a></td>
+</tr>
+<tr>
+	<td><input type="checkbox" name="m10"></td>
+	<td><a href="#">Dummy email content</a></td>
+</tr>
+<tr>
+	<td><input type="checkbox" name="m11"></td>
+	<td><a href="#">Dummy email content</a></td>
+</tr>
+</tbody>
+</table>
+</form>
+</body>
+</html>

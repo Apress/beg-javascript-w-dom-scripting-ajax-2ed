@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Twitter Search</title>
+
+<script type="text/javascript">
+
+  function results(d) {
+	  var resultArray = new Array();
+		  resultArray = d.results;
+	 for(var i=0; i< resultArray.length; i++){
+	 document.write(resultArray[i].from_user +"<br>");
+	 document.write("<img src="+resultArray[i].profile_image_url+"><br>");
+	 document.write(resultArray[i].text);
+	 document.write("<br><br>");		 
+	 }
+
+  }
+
+</script>
+<script type="text/javascript" src="http://search.twitter.com/search.json?q=brooklyn&callback=results"></script>
+
+</head>
+
+<body>
+<div id="container"></div>
+</body>
+</html>

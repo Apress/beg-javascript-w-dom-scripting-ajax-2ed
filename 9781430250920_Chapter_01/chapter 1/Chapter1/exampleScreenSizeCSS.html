@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="ltr" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+    <title>Example: Applying different CSS according to screen size</title>
+    <!-- Basic style with all settings -->
+    <link rel="StyleSheet" href="basic.css" type="text/css" />
+    <!-- 
+      Extra style (applied via JavaScript) to override default settings 
+      according to the screen resolution 
+    -->
+    <script type="text/javascript">
+      // define a variable called cssName and a message called resolutionInfo
+      var cssName;
+      var resolutionInfo;
+      // if the width of the screen is less than 650 pixels
+      if( screen.availWidth < 650 ) {  
+        // define the style Variable as the low-resolution styles
+        cssName = 'lowres.css';
+        resolutionInfo = 'low resolution';
+      // or if the width of the screen is less than 1000 pixels
+      } else {
+        if( screen.availWidth > 1000 ) {
+          // define the style Variable as the high-resolution styles
+          cssName = 'highres.css';
+          resolutionInfo = 'high resolution';
+        //otherwise 
+        } else {
+          // define the style Variable as the mid-resolution styles
+          cssName = 'lowres.css';
+	      resolutionInfo = 'medium resolution';
+        }
+      }
+      document.write('<link rel="StyleSheet" href="' + cssName + '" type="text/css" />');
+    </script>
+  </head>
+  <body>
+    <script type="text/javascript">
+      document.write('<p>Applied Style:'+ resolutionInfo + '</p>');
+    </script>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8"> 
+	<title>Untitled</title>
+	<style type="text/css">
+	</style>
+	<script type="text/javascript">
+		function dotables(){
+			// table without tbody
+			var table=document.createElement('table');
+			var tr=document.createElement('tr');
+			var td=document.createElement('td')
+			td.appendChild(document.createTextNode('foo'));
+			tr.appendChild(td);
+			table.appendChild(tr);
+			document.body.appendChild(table);
+			// table with tbody
+			var table2=document.createElement('table');
+			var tr2=tr.cloneNode(true);
+			var tbody=document.createElement('tbody');
+			tbody.appendChild(tr2);
+			table2.appendChild(tbody);
+			document.body.appendChild(table2);
+		}
+		window.onload=dotables;
+	</script>
+</head>
+<body>
+
+
+
+</body>
+</html>

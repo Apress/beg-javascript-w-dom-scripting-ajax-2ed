@@ -1,0 +1,27 @@
+*{
+  margin:0;
+  padding:0;
+}
+body{
+  font-size:100.01%;
+  font-family:Arial,sans-serif;
+  color:#333;
+  background:#f8f8f8;
+  padding:2em;
+}
+h1{
+  color:#363;
+  font-size:1.2em;
+}
+pre{
+  background:#eee;
+  border:1px solid #999;
+  padding:.5em;
+  margin:.5em;
+  font-size:.9em;
+
+}
+a{
+  color:#369;
+  font-size:.8em;
+}

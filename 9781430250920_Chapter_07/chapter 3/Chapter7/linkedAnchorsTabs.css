@@ -1,0 +1,104 @@
+		*{
+			margin:0;
+			padding:0;
+			list-style:none;
+			border:none;
+		}
+		body{
+			font-size:.87em;
+			font-family:Arial,Sans-serif;
+			color:#000;
+			background:#ccf;
+			padding:2em;
+		}
+		h1,#footer{
+			background:#99cc66;
+			padding:.2em 20px;
+			clear:both;
+			width:660px;
+		}
+		h2{
+			font-size:1.2em;
+			color:#090;
+			margin:.5em 0;
+		}
+		#toolinfo{
+			background:#f8f8f8;
+			padding:20px;
+			float:left;
+			width:660px;
+		}
+		#toolinfo a:link,
+		#toolinfo a:visited,
+		#toolinfo a:hover,
+		#toolinfo a:active{
+			color:#369;
+		}
+		#toolinfotoc{
+			background:#eef;
+			padding:1em;
+		}
+		#toolinfotoc li{
+			margin-left:1em;
+			list-style:square;
+			padding:.2em 0;
+		}
+		p.back{
+			padding:.2em;
+			text-align:right;
+			background:#eee;
+			margin-top:.5em;
+		}
+		#toolinfo p.back a:link,
+		#toolinfo p.back a:visited{
+			color:#000;
+		}
+		/* dynamic styles */
+		#toolinfo.dyn div.infoblock{
+			position:absolute;
+			left:-9999px;
+			height:1px;
+			overflow:hidden;
+		}
+		#toolinfo.dyn div.show{
+			position:relative;
+			height:auto;
+			overflow:visible;
+			left:0;
+		}
+		#toolinfo.dyn p.back{
+			display:none;
+		}
+		#toolinfo.dyn{
+			float:left;
+		}
+		#toolinfo.dyn #toolinfotoc{
+			float:left;
+			padding:0;
+			margin:0;
+		}
+		#toolinfo.dyn #toolinfotoc li{
+			float:left;
+			margin:0;
+			padding:0;
+			list-style:none;
+		}		
+		#toolinfo.dyn div.infoblock{
+			clear:both;
+			padding:.5em;
+			background:#dde;
+		}
+		#toolinfo.dyn #toolinfotoc a{
+			padding:.2em .5em;
+			display:block;
+			text-decoration:none;
+			font-weight:bold;
+			color:#777;
+			background:#ccd;
+		}		
+		#toolinfo.dyn #toolinfotoc a.current{
+			text-decoration:none;
+			font-weight:bold;
+			background:#dde;
+			color:#000;
+		}

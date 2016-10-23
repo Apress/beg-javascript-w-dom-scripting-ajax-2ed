@@ -1,0 +1,57 @@
+		*{
+			margin:0;
+			padding:0;
+			list-style:none;
+			border:none;
+		}
+		body{
+			font-size:.87em;
+			font-family:Arial,Sans-serif;
+			color:#000;
+			background:#ccf;
+			padding:2em;
+		}
+		.infoblock{
+			width:100%;
+		}
+		h1,#footer{
+			background:#99cc66;
+			padding:.2em .5em;
+			clear:both;
+		}
+		h2{
+			font-size:1.2em;
+			color:#090;
+			margin:.5em 0;
+		}
+		#toolinfo{
+			background:#f8f8f8;
+			padding:2em;
+			float:left;
+			width:auto;
+		}
+		#toolinfo a:link,
+		#toolinfo a:visited,
+		#toolinfo a:hover,
+		#toolinfo a:active{
+			color:#369;
+		}
+		#toolinfotoc{
+			background:#eef;
+			padding:1em;
+		}
+		#toolinfotoc li{
+			margin-left:1em;
+			list-style:square;
+			padding:.2em 0;
+		}
+		p.back{
+			padding:.2em;
+			text-align:right;
+			background:#eee;
+			margin-top:.5em;
+		}
+		#toolinfo p.back a:link,
+		#toolinfo p.back a:visited{
+			color:#000;
+		}

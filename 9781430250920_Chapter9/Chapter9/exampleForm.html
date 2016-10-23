@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="ltr" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+	<title>Example: A basic HTML form</title>
+	<style type="text/css">
+		@import 'formStyles.css';
+	</style>
+	<script type="text/javascript" src="../DOMhelp.js"></script>
+	<script type="text/javascript">
+		toplist={
+			validationRules:{
+				'Name':{
+					'error':'Please enter a name',
+					'pattern':/.{10}/i
+				},
+				'subject':{
+					'error':'Please choose a subject',
+					'pattern':/.{5}/i
+				},
+				'Message':{
+					'error':'Please enter a message at least 20 characters long',
+					'pattern':/.{20}/i
+				},
+				'email':{
+					'error':'Please enter a valid email',
+					'pattern':/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/i
+				}
+			},
+			error:[],
+			errorMessage:null,
+			errorClass:'error',
+			errorTitle:'Please fix the following problems:',
+			init:function(){
+				toplist.sendButton=document.getElementById('send');
+				if(!toplist.sendButton){return;}
+				toplist.f=document.getElementsByTagName('form')[0];
+				DOMhelp.addEvent(toplist.f,'submit',toplist.send,false);
+			},
+			send:function(e){
+				toplist.error=[];
+				if(toplist.errorMessage){
+					toplist.errorMessage.parentNode.removeChild(toplist.errorMessage);
+					toplist.errorMessage=null;
+				}
+				for(var i in toplist.validationRules){
+					if(!document.getElementById(i)){continue;}
+					toplist.checkValue(i);
+				}
+				if(toplist.error.length>0){
+					toplist.errorMessage=document.createElement('div');
+					toplist.errorMessage.className=toplist.errorClass;
+					var errorTitle=document.createElement('h2');
+					errorTitle.appendChild(document.createTextNode(toplist.errorTitle));
+					toplist.errorMessage.appendChild(errorTitle);
+					entry=document.createElement('ul');
+					toplist.errorMessage.appendChild(errorTitle);
+					toplist.errorMessage.appendChild(entry);
+					for(i=0;i<toplist.error.length;i++){
+						entry=document.createElement('li');
+						entry.appendChild(document.createTextNode(toplist.error[i]));
+						toplist.errorMessage.getElementsByTagName('ul')[0].appendChild(entry);
+					}
+					var sendPara=toplist.sendButton.parentNode;	
+					sendPara.parentNode.insertBefore(toplist.errorMessage,sendPara);
+					DOMhelp.cancelClick(e);		
+				}
+			},
+			checkValue:function(o){
+				var elm=document.getElementById(o);
+				switch(elm.type){
+					case 'text':
+						if(!toplist.validationRules[o]['pattern'].test(elm.value)){
+							toplist.error.push(toplist.validationRules[o]['error']);
+						}
+					break;
+					case 'textarea':
+						if(!toplist.validationRules[o]['pattern'].test(elm.value)){
+							toplist.error.push(toplist.validationRules[o]['error']);
+						}
+					break;
+					case 'select-one':
+						var curelm=elm.options[elm.selectedIndex].value;
+						if(elm.selectedIndex==5){
+							curelm=document.getElementById('otherSubject').value;
+						}
+						if(!toplist.validationRules[o]['pattern'].test(curelm)){
+							toplist.error.push(toplist.validationRules[o]['error']);
+						}
+					break;
+				}				
+				
+			}
+		}
+		DOMhelp.addEvent(window,'load',toplist.init,false);
+	</script>
+</head>
+<body>
+<form method="post" action="send.php">
+<fieldset>
+	<legend>About You</legend>
+	<p><label for="Name">Your Name<span class="mandatory">*</span></label></p>
+	<p><input type="text" id="Name" name="Name" /></p>
+	<p><label for="Surname">Your Surname</label></p>
+	<p><input type="text" id="Surname" name="Surname" /></p>
+	<p><label for="email">Your email<span class="mandatory">*</span></label></p>
+	<p><input type="text" id="email" name="email" /></p>
+</fieldset>
+<fieldset>
+	<legend>Your message</legend>
+	<p><label for="subject">Subject<span class="mandatory">*</span></label>
+	<select id="subject" name="subject">
+		<option value="generalEnquiry" selected="selected">General question</option>
+		<option value="Webdesign">Webdesign</option>
+		<option value="Hosting">Hosting</option>
+		<option value="Training">Training</option>
+		<option value="Partnership">Partnership</option>
+		<option value="other">Other</option>
+	</select></p>
+	<p><label for="otherSubject">specify other subject</label>
+	<input type="text" id="otherSubject" name="otherSubject" /></p>
+	<p><label for="Message">Your Message</label><span class="mandatory">*</span></p>
+	<p><textarea id="Message" name="Message" cols="20" rows="5"></textarea></p>
+</fieldset>
+<fieldset>
+	<legend>Email option</legend>
+	<p><input type="checkbox" name="copyMeIn" id="copyMeIn" />
+	<label for="copyMeIn">Send me a copy of this email to the above address</label></p>
+	<p><input type="checkbox" name="newsletter" value="yes" id="newsletter" />
+	<label for="newsletter">Sign me up for the newsletter</label></p>
+	<p>Newsletter format:
+	<input type="radio" name="newsletterFormat" id="newsHtml" value="html" checked="checked" />
+	<label for="newsHTML">HTML</label>
+	<input type="radio" name="newsletterFormat" id="newsPlain" value="plain"/>
+	<label for="newsPlain">Text</label></p>
+</fieldset>
+<p class="submit"><input type="submit" id="send" value="Send Form" /></p>
+</form>
+</body>
+</html>

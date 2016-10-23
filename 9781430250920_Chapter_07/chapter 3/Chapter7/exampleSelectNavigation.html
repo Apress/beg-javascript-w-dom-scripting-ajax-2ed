@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+  <title>Example: Select box navigation (evil)</title>
+  <style type="text/css">
+  </style>
+  <script type="text/javascript">
+  </script>
+</head>
+<body>
+<form>
+<p>
+  <select onchange="window.location=this.options[this.selectedIndex].value">
+    <option value="#">Please select</option>
+    <option value="http://www.apress.com">The publisher</option>
+    <option value="http://wait-till-i.com">The author's blog</option>
+    <option value="http://icant.co.uk">The author's other articles</option>
+    <option value="http://onlinetools.org">Scripts and tools by the author</option>
+  </select>  
+</p>
+</form>
+</body>
+</html>

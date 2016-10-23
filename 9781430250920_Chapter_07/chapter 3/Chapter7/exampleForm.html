@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+	<title>Example: A basic HTML form</title>
+	<style type="text/css">
+		*{
+			margin:0;
+			padding:0;
+		}
+		body{
+			padding:1em;
+			font-size:100.01%;
+			font-family:Verdana,Arial,Sans-Serif;
+		}
+		form{
+			font-size:.85em;
+		}
+		fieldset{
+			width:28em;
+			padding:.5em;		
+		}
+		textarea{
+			width:29em;
+		}
+		legend{
+			padding:.2em .5em;
+			font-weight:bold;
+			color:#363;
+		}
+		p{
+			margin-bottom:.3em;
+		}
+	</style>
+	<script type="text/javascript">
+	</script>
+</head>
+<body>
+<form method="post" action="send.php">
+<fieldset>
+	<legend>About You</legend>
+	<p><label for="Name">Your Name</label></p>
+	<p><input type="text" id="Name" name="Name" /></p>
+	<p><label for="Surname">Your Surname</label></p>
+	<p><input type="text" id="Surname" name="Surname" /></p>
+	<p><label for="email">Your email</label></p>
+	<p><input type="text" id="email" name="email" /></p>
+</fieldset>
+<fieldset>
+	<legend>Your message</legend>
+	<p><label for="subject">Subject</label>
+	<select id="subject" name="subject">
+		<option value="generalEnquiry" selected="selected">General question</option>
+		<option value="Webdesign">Webdesign</option>
+		<option value="Hosting">Hosting</option>
+		<option value="Training">Training</option>
+		<option value="Partnership">Partnership</option>
+		<option value="other">Other</option>
+	</select></p>
+	<p><label for="otherSubject">specify other subject</label>
+	<input type="text" id="otherSubject" name="otherSubject" /></p>
+	<p><label for="Message">Your Message</label></p>
+	<p><textarea id="Message" name="Message" cols="20" rows="5"></textarea></p>
+</fieldset>
+<fieldset>
+	<legend>Email option</legend>
+	<p><input type="checkbox" name="copyMeIn" id="copyMeIn" />
+	<label for="copyMeIn">Send me a copy of this email to the above address</label></p>
+	<p><input type="checkbox" name="newsletter" value="yes" id="newsletter" />
+	<label for="newsletter">Sign me up for the newsletter</label></p>
+	<p>Newsletter format:
+	<input type="radio" name="newsletterFormat" id="newsHtml" value="html" checked="checked" />
+	<label for="newsHTML">HTML</label>
+	<input type="radio" name="newsletterFormat" id="newsPlain" value="plain"/>
+	<label for="newsPlain">Text</label></p>
+	<p class="submit"><input type="submit" value="Send Form" /></p>
+</fieldset>
+</form>
+</body>
+</html>

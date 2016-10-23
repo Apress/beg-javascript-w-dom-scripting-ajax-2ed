@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+	<title>Example: How to read the choice of a select box</title>
+	<link rel="stylesheet" href="form.css">
+	
+	<script type="text/javascript" src="../DOMhelp.js"></script>
+	<script type="text/javascript">
+		function checkSingle(){
+			var f=document.forms[0];
+			var selectBox=f.elements['subject'];
+			var choice=selectBox.selectedIndex;
+			alert('You chose '+selectBox.options[choice].text)
+		}
+		function checkMultiple(){
+			var f=document.forms[0];
+			var selectBox=f.elements['multisubject'];
+			var choices=[];
+			for(var i=0;i<selectBox.options.length;i++){
+				if(selectBox.options[i].selected==1){
+				choices.push(selectBox.options[i].text);
+				}
+			}
+			alert(choices.join(','));
+		}
+		function getSelectValue(fieldName){
+			var f=document.forms[0];
+			var selectBox=f.elements[fieldName];
+			if(selectBox.type=='select-one'){
+				var choice=selectBox.selectedIndex;
+				alert('You chose '+selectBox.options[choice].text)
+			} else {
+				var choices=[];
+				for(var i=0;i<selectBox.options.length;i++){
+					if(selectBox.options[i].selected==1){
+					choices.push(selectBox.options[i].text);
+					}
+				}
+				alert('You chose '+choices.join(','));
+			}
+		}
+		function addOption(fieldName){
+			var f=document.forms[0];
+			var selectBox=f.elements[fieldName];
+			var extraOption=new Option('DOM scripting','domscripting',0,0);
+			selectBox.options[selectBox.options.length]=extraOption;
+		}
+		function removeOption(fieldName,i){
+			var f=document.forms[0];
+			var selectBox=f.elements[fieldName];
+			selectBox.options[i]=null;
+		}
+		function replaceOption(fieldName,i){
+			var f=document.forms[0];
+			var selectBox=f.elements[fieldName];
+			var extraOption=new Option('DOM scripting','domscripting',0,0);
+			selectBox.options[i]=extraOption;
+		}
+		function insertBeforeOption(fieldName,n){
+			var i=0,j=0,opts=[];
+			var f=document.forms[0];
+			var selectBox=f.elements[fieldName];
+			var extraOption=new Option('DOM scripting','domscripting',0,0);
+			var old=selectBox.options;
+			for(i=0;i<old.length;i++){
+				opts[i]=new Option(old[i].text,
+				old[i].value,old[i].defaultSelected,
+				old[i].selected);
+			}
+			old.length++
+			for(i=0;i<old.length;i++){
+				if(i==n){
+					old[i]=extraOption;
+				} else {
+					old[i]=opts[j];
+					j++
+				}
+			}
+		}
+		function insertBeforeOptionDOM(fieldName,i){
+			var selectBox=document.getElementById(fieldName);
+			if(!selectBox){return false;}
+			var opt=selectBox.getElementsByTagName('option');
+			var extraOption=document.createElement('option');
+			extraOption.setAttribute('value','domscripting');
+			extraOption.appendChild(document.createTextNode('DOM Scripting'));
+			selectBox.insertBefore(extraOption,selectBox.options[i]);
+		}
+	</script>
+</head>
+<body>
+<form method="get" action="">
+<div id="js">
+<h2>JavaScript tests:</h2> 
+<p>
+  <input type="button" onclick="checkSingle()" value="Read single choice" />
+  <input type="button" onclick="checkMultiple()" value="Read multiple choice" />
+</p>
+<p>
+  <input type="button" onclick="getSelectValue('subject')" value="Read single choice (generic)" />
+  <input type="button" onclick="getSelectValue('multisubject')" value="Read multiple choice (generic)" />
+</p>
+<p>
+  <input type="button" onclick="addOption('multisubject')" value="Add an option" />
+  <input type="button" onclick="removeOption('multisubject',1)" value="Remove 2nd option" />
+  <input type="button" onclick="replaceOption('multisubject',1)" value="Replace 2nd option" />
+  <input type="button" onclick="insertBeforeOption('multisubject',4)" value="Insert before option 5" />
+  <input type="button" onclick="insertBeforeOptionDOM('multisubject',4)" value="Insert before option 5 (DOM-2)" />
+</p>
+<p id="jsout"></p>
+</div>
+	<p><label for="subject">Subject</label>
+	<select id="subject" name="subject">
+		<option value="generalEnquiry" selected="selected">1 General question</option>
+		<option value="Webdesign">2 Webdesign</option>
+		<option value="Hosting">3 Hosting</option>
+		<option value="Training">4 Training</option>
+		<option value="Partnership">5 Partnership</option>
+		<option value="other">6 Other</option>
+	</select></p>
+	<p><label for="multisubject">Subject</label>
+	<select name="multisubject" id="multisubject" size="6" multiple="multiple">
+		<option value="generalEnquiry" selected="selected">1 General question</option>
+		<option value="Webdesign">2 Webdesign</option>
+		<option value="Hosting">3 Hosting</option>
+		<option value="Training">4 Training</option>
+		<option value="Partnership">5 Partnership</option>
+		<option value="other">6 Other</option>
+	</select></p>
+</form>
+</body>
+</html>

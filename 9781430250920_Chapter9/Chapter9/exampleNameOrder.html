@@ -1,0 +1,22 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="ltr" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+	<title>Example: Reversing the order of Names with Regular expressions</title>
+	<style type="text/css">
+	</style>
+	<script type="text/javascript">
+		names=[
+			'Reznor, Trent',
+			'Eldritch, Andrew',
+			'Clark, Anne',
+			'Almond,Marc'
+		];
+		for(i=0;i<names.length;i++){
+			alert(names[i].replace(/(\w+)+,\s?(\w+)/g,'$2 $1'));
+		}
+	</script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+<script>
+	function createDataList(){
+	 var nameArray = new Array();
+	 	 nameArray[0] = "Bill Gates";
+		 nameArray[1] = "Linus Torvalds";
+		 nameArray[2] = "Douglas Coupland";
+		 nameArray[3] = "Ridley Scott";
+		 nameArray[4] = "George Lucas";
+		 nameArray[5] = "Dan Akroyd"; 
+		 nameArray[6] = "Sigourney Weaver"; 
+		 nameArray[7] = "Tim Burton"; 
+		 nameArray[8] = "Katie Jane Garside"; 
+		 nameArray[9] = "Winona Ryder"; 
+		 nameArray[10] = "Martin Gore"; 
+		 nameArray[11] = "Kurt Harland Larson";
+		 nameArray[12] = "Paul Robb";
+		 nameArray[13] = "James Cassidy";         
+		 nameArray[14] = "David Tennant";
+		var dataList = document.createElement("datalist");
+			dataList.id = "datalist1";
+			document.body.appendChild(dataList);
+			
+			for(var i = 0; i<nameArray.length; i++){
+				var option = document.createElement("option");
+					option.value = nameArray[i];	
+					dataList.appendChild(option);
+			}
+	}
+	
+	
+	document.addEventListener("DOMContentLoaded", createDataList, false);
+</script>
+</head>
+
+					
+					
+					
+<body>
+<label for="srch">Type in a name:</label>
+<input type="text" name="srch" id="srch" list="datalist1" />
+
+</body>
+
+</html>
+

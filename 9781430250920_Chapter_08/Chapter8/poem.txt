@@ -1,0 +1,11 @@
+ Volume in drive C is IBM_PRELOAD
+ Volume Serial Number is C88E-1253
+
+ Directory of c:\_liveserver\xampp\htdocs\mybook\Chapter8_Backend_Interaction_With_AJAX
+
+04/04/2006  08:35    <DIR>          .
+04/04/2006  08:35    <DIR>          ..
+04/04/2006  08:35                 0 bla.txt
+04/04/2006  08:35             3,129 exampleSimpleXHR.html
+               2 File(s)          3,129 bytes
+               2 Dir(s)   3,362,320,384 bytes free

@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+	<title>Example: Simple XHR</title>
+	 <link rel="stylesheet" href="form.css">
+	<script type="text/javascript" src="../DOMhelp.js"></script>
+	<script type="text/javascript">
+	XHR={
+		init:function(){
+		  var XHRcaller;
+		  try{
+		    XHRcaller = new XMLHttpRequest();
+		  } catch (error) {
+		    try {
+		      XHRcaller = new ActiveXObject("Microsoft.XMLHTTP");
+		    } catch (error) {
+		      XHRcaller = null;
+		    }
+		  }
+		  if (XHRcaller != null){
+		    XHRcaller.onreadystatechange = function(){
+		      if (XHRcaller.readyState == 1){
+		  document.getElementById('navcontainer').innerHTML='<img src="indicator_big.gif" alt="loading" />'
+			  }
+
+		      if (XHRcaller.readyState == 4){
+		        if (/200|304/.test(XHRcaller.status)){
+		          XHR.retrieved(XHRcaller);
+		        } else{
+		          XHR.failed(XHRcaller);
+		        }
+		      }
+		      return true;
+		    }
+			parameters="url=http://mfrost.typepad.com/cute_overload/rss.xml";
+		    XHRcaller.open("POST", "loadrss.php");
+		    XHRcaller.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		  XHRcaller.setRequestHeader("Content-length", parameters.length);
+		    XHRcaller.setRequestHeader("Connection", "close");
+		  XHRcaller.send(encodeURI(parameters));
+
+		  } else {
+		    return false;
+		  }
+		return true;
+		},
+		retrieved:function(caller){
+			var content='';
+			var data=caller.responseText;
+			data=data.match(/<img.*?>/g);
+			for(var i=0;i<data.length;i++){
+				content+=data[i];
+			}
+			document.getElementById('navcontainer').innerHTML=content;
+		},
+		failed:function(requester){
+		  alert("The XMLHttpRequest failed with status code: " + requester.status);
+		  return true;
+		}
+	}
+	</script>
+</head>
+<body>
+<a href="#" onclick="XHR.init(this,'http://www.456bereastreet.com/feed_ql.xml');return false;">load cute</a>
+<div id="navcontainer">
+
+</div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="ltr" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+	<title>Example: CGI vs. JavaScript form submission</title>
+	<style type="text/css">
+		@import 'formExamples.css';
+	</style>
+	<script type="text/javascript" src="../DOMhelp.js"></script>
+	<script type="text/javascript" src="formCGIvsJS.js"></script>
+</head>
+<body>
+<h1>Your basket details</h1>
+<p>Here you can ammend or delete your orders.</p>
+<form action="">
+<p>
+  <a href="#">Beginning JavaScript with DOMscripting and AJAX</a>&nbsp;
+  <label for="amount_1">Amount</label>
+  <input type="text" name="amount_1" size="2" id="amount_1" />
+  <input type="submit" name="del_1" value="delete" id="del_1" />
+</p>
+<p>
+  <input type="submit" 
+    name="checkout" id="checkout" 
+	value="Go to Checkout" />
+</p>
+<p>
+  <input type="submit" 
+    name="shop" id="shop" 
+	value="Keep shopping" />
+</p>
+</form>
+</body>
+</html>

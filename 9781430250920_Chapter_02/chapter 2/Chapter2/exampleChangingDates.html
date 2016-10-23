@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="ltr" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+	<title>Example: Changing a date</title>
+</head>
+<body>
+<script type="text/javascript">
+//ask the user to enter a date string
+var originalDate = prompt("Enter a date (month name, date, year)",
+"31 Dec 2003");
+//overwrite the originalDate variable with a new Date object
+var originalDate = new Date(originalDate);
+//ask the user to enter the number of days to be added, and convert to number
+var addDays = Number(prompt("Enter number of days to be added","1"))
+//set a new value for originalDate of originalDate plus the days to be added 
+originalDate.setDate(originalDate.getDate() + addDays)
+//write out the date held by the originalDate object using the toString() method
+document.write(originalDate.toString())
+</script>
+</body>
+</html>
+

@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+	<title>Example: Simple simplexhr</title>
+	 <link rel="stylesheet" href="form.css">
+	<script type="text/javascript" src="../DOMhelp.js"></script>
+	<script type="text/javascript">
+	simplexhr={
+		init:function(outputContainer,file,o){
+			if(!document.getElementById || !document.createTextNode){return;}
+			simplexhr.outputContainer=document.getElementById(outputContainer);
+			if(!simplexhr.outputContainer){return}
+			var nav=simplexhr.outputContainer.getElementsByTagName('ul')[0];
+			if(nav.getElementsByTagName('ul').length>0){
+				var nested=nav.getElementsByTagName('ul');
+				for(var i=0;i<nested.length;i++){
+					nested[i].parentNode.removeChild(nested[i]);
+					i--;
+					o.firstChild.nodeValue='show extended menu';
+				}
+			}else{
+				o.firstChild.nodeValue='hide extended menu';
+				simplexhr.doxhr('navigation.html');
+			}
+		},
+		doxhr:function(url){
+			var request;
+			try{
+				request = new XMLHttpRequest();
+			}catch(error){
+				try{
+					request = new ActiveXObject("Microsoft.XMLHTTP");
+				}catch(error){
+					request = null;
+				}
+			}
+			if (request != null){
+				request.onreadystatechange = function(){
+					if (request.readyState == 4){
+						if (request.status && /200|304/.test(request.status))
+						{
+							simplexhr.retrieved(request);
+						} else{
+							simplexhr.failed(request);
+						}
+					}
+				}
+				request.open('get',url);
+				request.send(null);
+			} else {
+				return false;
+			}
+		},
+		retrieved:function(caller){
+			var data=caller.responseText;
+			simplexhr.outputContainer.innerHTML=data;
+		},
+		failed:function(requester){
+			alert('The XMLHttpRequest failed. Status: '+requester.status);
+			return true;
+		}
+	}
+	</script>
+</head>
+<body>
+<p><a href="navigation.html" onclick="simplexhr.init('navcontainer','navigation.html',this);return false;">show extended menu</a></p>
+<div id="navcontainer">
+<ul id="nav">
+	<li><a href="index.php">Home</a></li>
+	<li><a href="products.php">Products</a></li>
+	<li><a href="services.php">Services</a></li>
+	<li><a href="pricing.php">Pricing</a></li>
+	<li><a href="about_us.php">About Us</a></li>
+	<li><a href="contact.php">Contact Us</a></li>
+</ul>
+</div>
+</body>
+</html>

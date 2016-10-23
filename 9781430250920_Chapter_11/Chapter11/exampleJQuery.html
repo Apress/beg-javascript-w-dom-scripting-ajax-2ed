@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+	<title>Example: Showing and hiding with jQuery</title>
+    <link href="jqueryTest.css" rel="stylesheet">
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="jqueryTest.js"></script>
+</head>
+<body>
+<h1>Showing and hiding a code example with jQuery</h1>
+<p>The code</p>
+<pre><code>
+$( document ) . ready ( 
+  function() {
+    $( 'pre' ).before( '&#60;p&#62;&#60;a class=&#34;trigger&#34; href=&#34;#&#34;&#62;Show code&#60;/a&#62;&#60;/p&#62;' );
+    $( 'pre' ).hide();
+    $('a.trigger').toggle ( 
+      function() {
+        $(this.parentNode.nextSibling).slideDown('slow');
+        $(this).html('Hide Code');
+      },
+      function() {
+        $(this.parentNode.nextSibling).slideUp('slow');
+        $(this).html('Show Code');
+      }
+    )
+  }
+)
+</code></pre>
+<p>The CSS</p>
+<pre><code>
+*{
+  margin:0;
+  padding:0;
+}
+body{
+  font-size:100.01%;
+  font-family:Arial,sans-serif;
+  color:#333;
+  background:#f8f8f8;
+  padding:2em;
+}
+h1{
+  color:#363;
+  font-size:1.2em;
+}
+pre{
+  background:#eee;
+  border:1px solid #999;
+  padding:.5em;
+  margin:.5em;
+  font-size:.9em;
+}
+a{
+  color:#369;
+  font-size:.8em;
+}
+</code></pre>
+<p><a href="http://jquery.com">jQuery homepage</a></p>
+</body>
+</html>

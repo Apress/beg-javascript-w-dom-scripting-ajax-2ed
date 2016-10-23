@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="ltr" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+	<title>Example: Hiding the main form on validation</title>
+	<style type="text/css">
+		@import 'formStyles.css';
+	</style>
+	<script type="text/javascript" src="../DOMhelp.js"></script>
+	<script type="text/javascript" src="validationRules.php?json=1"></script>
+	<script type="text/javascript" src="hideForm.js"></script>
+</head>
+<body>
+<form method="post" action="send.php">
+<fieldset>
+	<legend>About You</legend>
+	<p><label for="Name">Your Name<span class="mandatory">*</span></label></p>
+	<p><input type="text" id="Name" name="Name" /></p>
+	<p><label for="Surname">Your Surname</label></p>
+	<p><input type="text" id="Surname" name="Surname" /></p>
+	<p><label for="email">Your email<span class="mandatory">*</span></label></p>
+	<p><input type="text" id="email" name="email" /></p>
+</fieldset>
+<fieldset>
+	<legend>Your message</legend>
+	<p><label for="subject">Subject<span class="mandatory">*</span></label>
+	<select id="subject" name="subject">
+		<option value="generalEnquiry" selected="selected">General question</option>
+		<option value="Webdesign">Webdesign</option>
+		<option value="Hosting">Hosting</option>
+		<option value="Training">Training</option>
+		<option value="Partnership">Partnership</option>
+		<option value="other">Other</option>
+	</select></p>
+	<p><label for="otherSubject">specify other subject</label>
+	<input type="text" id="otherSubject" name="otherSubject" /></p>
+	<p><label for="Message">Your Message</label><span class="mandatory">*</span></p>
+	<p><textarea id="Message" name="Message" cols="20" rows="5"></textarea></p>
+</fieldset>
+<fieldset>
+	<legend>Email option</legend>
+	<p><input type="checkbox" name="copyMeIn" id="copyMeIn" />
+	<label for="copyMeIn">Send me a copy of this email to the above address</label></p>
+	<p><input type="checkbox" name="newsletter" value="yes" id="newsletter" />
+	<label for="newsletter">Sign me up for the newsletter</label></p>
+	<p>Newsletter format:
+	<input type="radio" name="newsletterFormat" id="newsHtml" value="html" checked="checked" />
+	<label for="newsHTML">HTML</label>
+	<input type="radio" name="newsletterFormat" id="newsPlain" value="plain"/>
+	<label for="newsPlain">Text</label></p>
+</fieldset>
+<p class="submit"><input type="submit" id="send" value="Send Form" /></p>
+</form>
+</body>
+</html>

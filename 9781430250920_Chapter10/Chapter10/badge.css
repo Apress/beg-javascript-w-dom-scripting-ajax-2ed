@@ -1,0 +1,78 @@
+	ul.badge,ul.badge *{
+		margin:0;
+		padding:0;
+	}
+	ul.badge{
+		clear:both;
+		float:left;
+		list-style:none;
+		background:#ddf;
+		margin:10px;
+		width:610px;
+		padding-left:41px;
+		height:110px;
+		position:relative;
+	}
+	ul.badge li.badgenext{
+		position:absolute;
+		right:0;
+	}
+	ul.badge li.badgenext a,
+	ul.badge li.badgenext span,
+	ul.badge li.badgeprev a,
+	ul.badge li.badgeprev span{
+		background:url('badgearrows.gif') top left no-repeat;
+		display:block;
+		width:41px;
+		height:110px;
+		text-indent:-200px;
+		position:absolute;
+		top:0;
+		right:0;
+		background-position:-205px;
+		overflow:hidden;
+	}
+	ul.badge li.badgeprev a,
+	ul.badge li.badgeprev span{
+		left:0;
+		background-position:0px;
+	}
+	ul.badge li.badgeprev a:link,
+	ul.badge li.badgeprev a:visited{
+		left:0;
+		background-position:-82px;
+	}
+	ul.badge li.badgeprev a:hover{
+		left:0;
+		background-position:-41px;
+	}
+	ul.badge li.badgenext a:link,
+	ul.badge li.badgenext a:visited	{
+		background-position:-123px;
+	}
+	ul.badge li.badgenext a:hover{
+		background-position:-164px;
+	}
+	
+	ul.badge li{
+		float:left;
+		padding:5px;
+		list-style:none;
+	}
+	#badgecontainer{
+		position:absolute;
+		width:99%;
+		cursor:pointer;
+	}
+	#badgecontainer img{
+		display:block;
+		margin:20px auto;
+		border:3px solid #333;
+	}
+	.badge a img{
+		border:none;
+	}
+	#boundary{
+		width:610px;
+		margin:0 auto;
+	}

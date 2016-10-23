@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="ltr" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+	<title>Example: Using Date</title>
+</head>
+<body>
+<script type="text/javascript">
+//create a new date object
+var someDate = new Date("31 Jan 2003 11:59");
+//retrieve the first four values using the appropriate get methods 
+document.write("Minutes = " + someDate.getMinutes() + "<br>");
+document.write("Year = " + someDate.getFullYear() + "<br>");
+document.write("Month = " + someDate.getMonth() + "<br>");
+document.write("Date = " + someDate.getDate() + "<br>");
+//set the minutes to 34
+someDate.setMinutes(34);
+  
+document.write("Minutes = " + someDate.getMinutes() + "<br>");
+//reset the date 
+someDate.setDate(32);
+
+document.write("Date = " + someDate.getDate() + "<br>");
+document.write("Month = " + someDate.getMonth() + "<br>");
+</script>
+</body>
+</html>

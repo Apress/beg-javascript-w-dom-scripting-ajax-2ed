@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html dir="ltr" lang="en">
+<head>
+<title>Example: Order of Code Execution</title>
+<body>
+<script type="text/JavaScript">
+// One-line comments are useful for reminding us what the code is doing
+/*
+	This is a multiline comment. It's useful for longer comments and
+	also to block out segments of code when you're testing
+*/
+/*
+	Script starts here. We're declaring a variable myName, and assigning to it the
+	value of whatever the user puts in the prompt box (more on that in Chapter
+	2), finishing the instruction with a semicolon because it is a statement
+*/
+var myName = prompt ("Enter your name","");
+// If the name the user enters is Chris Heilmann
+if (myName == "Chris Heilmann") {
+	// then a new window pops up saying hello
+	alert("Hello Me");
+// If the name entered isn't Chris Heilmann
+} else {
+	// say hello to someone else
+	alert("hello someone else");
+}
+</script>
+</body>
+</html>

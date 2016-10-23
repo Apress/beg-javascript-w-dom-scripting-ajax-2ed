@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+	<title>Example: Spotting mandatory fields by class name</title>
+    <link rel="stylesheet" href="formStyles.css">
+    <style>
+	.interacted:invalid {
+        border: 1px solid red;
+    }
+    .interacted:valid {
+        border: 1px solid green;
+    }			
+	</style>
+    <script>
+	
+	function addInteractedClass(){
+		//var inputs = document.querySelectorAll('input[type=email]');
+		var inputs = document.getElementsByTagName("input");
+		for(var i = 0; i<inputs.length; i++){
+				inputs[i].addEventListener("blur", function(event){
+					event.target.classList.add("interacted");	
+				}, false);
+		}
+	}
+	document.addEventListener("DOMContentLoaded", addInteractedClass, false);		
+	</script>
+	
+</head>
+<body>
+<form method="post" action="send.php">
+<fieldset>
+	<legend>About You</legend>
+	<p><label for="Name">Your Name</label></p>
+	<p><input type="text" id="Name" placeholder="Name"  title="Please enter your name" required/></p>
+	<p><label for="email">Your email</label></p>
+	<p><input type="email" id="email"  required /></p>
+</fieldset>
+
+<p><input type="submit" id="send" value="Send Form" /></p>
+</form>
+</body>
+</html>

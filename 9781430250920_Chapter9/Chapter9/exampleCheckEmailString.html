@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+	<title>Example: Testing an email with string methods</title>
+	<style type="text/css">
+	</style>
+	<script type="text/javascript">
+		function isEmail(){
+		  var mail=document.getElementById('email');
+		  var error='';
+		  if(!mail){return false;}
+		  var mailstring=mail.value;
+		  if(mailstring.length==0){
+		    error='You didn\'t enter a value';
+		    alert(error);
+		    return false;
+		  }
+		  if(mailstring.indexOf('@')==-1){
+		    error='This email has no @ sign';
+		    alert(error);
+		    return false;
+		  } else if(mailstring.lastIndexOf('@')!=mailstring.indexOf('@')){
+		    error='An email may only contain one @ sign.';
+		    alert(error);
+		    return false;
+		  }
+		  var chunks=mailstring.split('@');
+		  var n=chunks[0];
+		  if(n.substring(0,1)=='.' || n.substring(0,1)=='-' || 
+		      n.substr(n.length-1,1)=='.'){
+		    error='The user name may not start with a period or hyphen';
+		    error+=' or may not end with a period';   
+		    alert(error);
+		    return false;
+		  }								
+		  if(!checkValidCharacters(n)){
+		    error='The email name contains invalid characters';
+		    alert(error);
+		    return false;
+		  }
+		  n=chunks[1];
+		  if(n.substring(0,1)=='.' || n.substring(0,1)=='-' ||
+		      n.substr(n.length-1,1)=='-' || n.substr(n.length-1,1)=='.'){
+		    error='The domain name may not start or end with a dash or dot';
+		    alert(error);
+		    return false;
+		  }								
+		  if(!checkValidCharacters(n)){
+		    error='The domain name contains invalid characters';
+		    alert(error);
+		    return false;
+		  }
+		  return true;
+		}
+		function checkValidCharacters(n){
+		  for(var i=0;i<n.length;i++){
+		    currentCode=n.charCodeAt(i);
+		    if(currentCode==45 || currentCode==46 || 
+			   currentCode==95 ||
+			   (currentCode>96 && currentCode<123) || 
+			   (currentCode>47 && currentCode<58)){
+		     continue;
+		    } else {
+		     return false;
+			}
+		  }
+		  return true;
+		}
+	</script>
+</head>
+<body>
+<form onsubmit="return isEmail()">
+	<p><label for="email">Your email:</label>
+	<input type="text" value="" name="email" id="email" /></p>
+	<p><input type="submit" value="send" /></p>
+</form>
+</body>
+</html>

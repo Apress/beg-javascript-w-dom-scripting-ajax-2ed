@@ -1,0 +1,50 @@
+		*{
+			margin:0;
+			padding:0;
+		}
+		body{
+			padding:1em;
+			font-size:100.01%;
+			font-family:Verdana,Arial,Sans-Serif;
+		}
+		form{
+			font-size:.85em;
+		}
+		fieldset{
+			width:20em;
+			padding:.5em;		
+		}
+		textarea{
+			width:19em;
+		}
+		legend{
+			padding:.2em .5em;
+			font-weight:bold;
+			color:#363;
+		}
+		p{
+			margin-bottom:.3em;
+		}
+		p.submit{
+			width:21em;
+			text-align:right;
+		}
+		div#js{
+			width:19em;
+			margin:1em 0;
+			padding:.5em;
+			background:#ccf;
+			border:1px solid #999;
+		}
+		div#js h2{
+			font-size:1em;
+			padding:.2em 0 .5em 0;
+		}
+		div#js p#jsout{
+			font-family:courier, monospace;	
+			color:#0f0;
+			background:#000;
+		}
+		h1{
+			font-size:1.2em;
+		}

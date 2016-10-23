@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="ltr" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+	<title>Example: Testing User Entered Data against a Value Range</title>
+</head>
+<body>
+<script type="text/javascript">
+//ask the use for a number and try to convert the input into a number
+var userNumber = Number(prompt("Enter a number between 1 and 10",""));
+//if the value of userNumber is NaN then ask the user to try again
+if (isNaN(userNumber)){
+  document.write("Please ensure a valid number is entered");
+//if the value is a number but over 10 then ask the user to try again 
+} else {
+  if (userNumber > 10 || userNumber < 1){
+    document.write("The number you entered is not between 1 and 10");
+//otherwise the number is between 1 and 10 so write to the page
+  } else {
+    document.write("The number you entered was " + userNumber);
+  }
+}
+</script>
+</body>
+</html>
+

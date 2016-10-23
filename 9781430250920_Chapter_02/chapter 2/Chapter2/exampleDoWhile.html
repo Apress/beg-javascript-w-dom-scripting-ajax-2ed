@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="ltr" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+	<title>Example: Using do...while loops</title>
+</head>
+<body>
+<script type="text/javascript">
+var userNumbers = new Array();
+var message = '';
+var total = 0;  
+//declare the userInput but don't initialize it 
+var userInput; 
+var arrayIndex = 0;
+
+do {
+  userInput = prompt("Enter a number, or 99 to exit","99");
+  userNumbers[arrayIndex] = userInput;
+  arrayIndex++;
+} while (userInput != 99)
+
+message+='You entered the following:\n';
+
+for (var i=0;i<arrayIndex-1;i++) {
+  message+=userNumbers[i]+'\n';
+  total+=Number(userNumbers[i]);
+}
+
+message+='Total: ' + total + '\n';
+alert(message);
+</script>
+</body>
+</html>
